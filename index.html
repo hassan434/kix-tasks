@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>مهمة مشاهدة الفيديو</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background: #f9f9f9; }
+    #timer { font-size: 24px; margin: 20px 0; color: #333; }
+    #getPoints { display: none; padding: 10px 20px; font-size: 18px; background: #1976d2; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>📺 شاهد الفيديو لمدة دقيقة</h1>
+  <iframe width="350" height="600" src="https://www.youtube.com/embed/KNTV_YMUgfs" frameborder="0" allowfullscreen></iframe>
+  <div id="timer">الوقت المتبقي: 60 ثانية</div>
+  <button id="getPoints">✅ احصل على النقاط</button>
+
+  <script>
+    let timeLeft = 60;
+    const timerEl = document.getElementById('timer');
+    const buttonEl = document.getElementById('getPoints');
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      timerEl.textContent = 'الوقت المتبقي: ' + timeLeft + ' ثانية';
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        timerEl.textContent = '✅ يمكنك الآن الحصول على النقاط';
+        buttonEl.style.display = 'inline-block';
+      }
+    }, 1000);
+
+    buttonEl.addEventListener('click', () => {
+      alert('✅ تم تسجيل مشاهدتك، سيتم احتساب النقاط في حسابك');
+    });
+  </script>
+</body>
+</html>
+
+add index.html for task viewer
+
+
